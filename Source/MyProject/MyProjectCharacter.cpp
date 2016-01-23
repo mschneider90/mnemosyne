@@ -96,13 +96,10 @@ void AMyProjectCharacter::OnFire()
 		if (World != NULL)
 		{
 			// spawn the projectile at the muzzle
-			for (int i = 0; i < 20; i++) {
-				//FVector vec(rand(), rand(), rand());
-				SpawnLocation += FVector((static_cast<double>((rand()) / RAND_MAX) * 100, (static_cast<double>(rand()) / RAND_MAX ) * 100, (static_cast<double>(rand()) / RAND_MAX)) * 100);
-				World->SpawnActor<AMyProjectProjectile>(ProjectileClass, SpawnLocation, SpawnRotation);
-				AddControllerPitchInput(-5 * GetWorld()->GetDeltaSeconds());
-				AddControllerYawInput((static_cast<double>(rand()) / RAND_MAX - .5f) * GetWorld()->GetDeltaSeconds() * 100);
-			}
+			World->SpawnActor<AMyProjectProjectile>(ProjectileClass, SpawnLocation, SpawnRotation);
+			//Add recoil
+			AddControllerPitchInput(-5 * GetWorld()->GetDeltaSeconds());
+			AddControllerYawInput((static_cast<double>(rand()) / RAND_MAX - .5f) * GetWorld()->GetDeltaSeconds() * 100);
 		}
 	}
 
