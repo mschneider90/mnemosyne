@@ -136,7 +136,7 @@ void AMyProjectCharacter::BeginTouch(const ETouchIndex::Type FingerIndex, const 
 
 void AMyProjectCharacter::OnFireDown()
 {
-	GetWorldTimerManager().SetTimer(rapid_fire_handle, this, &AMyProjectCharacter::OnFire, 0.05f, true, 0);
+	GetWorldTimerManager().SetTimer(rapid_fire_handle, this, &AMyProjectCharacter::OnFire, 0.1f, true, 0);
 	GetWorldTimerManager().UnPauseTimer(rapid_fire_handle);
 }
 
